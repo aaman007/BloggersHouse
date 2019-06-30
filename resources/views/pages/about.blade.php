@@ -1,15 +1,22 @@
 @extends('layouts.app')
 @section('content')
-    
-    <h1>{{$title}}</h1>
-    <p>This is the greatest about page on planet earth </p>
-
-    @if(count($infos))
-        <ul class="list-group">
-            @foreach($infos as $info)
-                <li class="list-group-item"> {{$info}} </li>
-            @endforeach
-        </ul>
-    @endif
+    <div class="card text-center">
+        <div class="card-header">
+            About Us
+        </div>
+        <div class="card-body">
+            <h4 class="card-title">CodeVille</h4>
+            <p class="card-text">
+                    @if(count($infos))
+                        <ul class="list-group">
+                            @foreach($infos as $info)
+                                <li class="list-group-item"> {{$info}} </li>
+                            @endforeach
+                        </ul>
+                @endif
+            </p>
+            <a href="https://aaman007.wordpress.com/" class="btn btn-primary">Aaman007</a>
+        </div>
+    </div>
     
 @endsection

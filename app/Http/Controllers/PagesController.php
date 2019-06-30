@@ -17,7 +17,7 @@ class PagesController extends Controller
         $data = array(
             'title' => 'About Us' ,
             'infos' => ['Developer : Amanur Rahman' , 'Department : CSE' , 'University : Metropolitan University',
-            'Framework Used : Laravel']
+            'Framework : Laravel']
         );
 
         return view('pages.about')->with($data);

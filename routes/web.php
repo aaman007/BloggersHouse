@@ -26,5 +26,10 @@ route::resource('posts','PostsController');
 Auth::routes();
 
 Route::get('/home','DashboardController@alreadySignedIn');
-
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+Route::get('/users','UsersController@index');
+
+Route::get('/users/{id}','UsersController@showPosts');
+
+Route::get('users/posts/{id}' , 'UsersController@show');

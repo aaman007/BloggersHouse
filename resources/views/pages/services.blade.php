@@ -2,15 +2,22 @@
 
 @section('content')
 
-    <h1>{{$title}}</h1>
-    <p>This is the greatest services page on planet earth </p>
-
-    @if(count($services))
-        <ul class="list-group">
-            @foreach($services as $service)
-                <li class="list-group-item"> {{$service}} </li>
-            @endforeach
-        </ul>
-    @endif
+    <div class="card text-center">
+            <div class="card-header">
+                Services
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Our Services</h5>
+                <p class="card-text">
+                        @if(count($services))
+                            <ul class="list-group">
+                                @foreach($services as $service)
+                                    <li class="list-group-item"> {{$service}} </li>
+                                @endforeach
+                            </ul>
+                    @endif
+                </p>
+            </div>
+        </div>
 
 @endsection

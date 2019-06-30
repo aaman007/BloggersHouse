@@ -4,7 +4,9 @@
     <div class="jumbotron text-center">
         <h1>{{$title}}</h1>
         <p>This is the greatest laravel project on planet earth</p>
-    <p><a class="btn btn-primary btn-lg" href="/login" role="button">Login</a> <a class="btn btn-success btn-lg" href="/register" role="button">Register</a></p>
-</div>
+        @if(Auth::guest())
+            <p><a class="btn btn-primary btn-lg" href="/login" role="button">Login</a> <a class="btn btn-success btn-lg" href="/register" role="button">Register</a></p>
+        @endif
+    </div>
 
 @endsection
