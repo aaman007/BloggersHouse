@@ -1,15 +1,15 @@
-## CodeVille : A Laravel Project
+# CodeVille : A Laravel Project
 
-# About CodeVille        
-*Blogging Website        
+## About CodeVille        
+### *Blogging Website        
 *Highly Secured        
         
-# Features       
+## Features       
 *Sign In and Registration System      
 *CRUD Functionality        
 *Dashboard       
          
-# Lackings       
+## Lackings       
 *No Profile System      
 *No Settings System      
 *No Admin Panel      
