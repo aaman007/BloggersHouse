@@ -6,6 +6,7 @@
 
         <div class="card-body">
             {!!Form::open(['action' => ['SettingController@update',$user->id] , 'method' => 'POST'])!!}
+            @csrf
             <table class="table table-striped">
                 <tr>
                     <th>Name  </th>
