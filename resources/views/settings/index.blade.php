@@ -21,7 +21,7 @@
                 </tr>
                 <tr>
                     <th>New Password  </th>
-                    <th> {{Form::password('oldPassword',['class' => 'form-control','placeholder' => 'Old Password'])}} </th>
+                    <th> {{Form::password('currentPassword',['class' => 'form-control','placeholder' => 'Current Password'])}} </th>
                 </tr>
                 <tr>
                     <th>New Password  </th>

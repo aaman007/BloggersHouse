@@ -77,16 +77,16 @@ class SettingController extends Controller
     {
         $this->validate($request,[
             'name' => 'required',
-            'oldPassword' => 'required',
+            'currentPassword' => 'required',
             'newPassword' => 'nullable|min:8',
             'institution' => 'nullable|min:0'
         ]);
 
         $user = User::find($id);
-        $oldPassword = $request->input('oldPassword');
+        $currentPassword = $request->input('currentPassword');
         $newPassword = $request->input('newPassword');
 
-        if(Hash::check($oldPassword,$user->password)){
+        if(Hash::check($currentPassword,$user->password)){
             $user->name = $request->input('name');
             if($request->input('institution') != '')
                 $user->institution = $request->input('institution');
@@ -98,7 +98,7 @@ class SettingController extends Controller
             return redirect('/settings')->with('success','Profile Updated');
         }
         else
-            return redirect('/settings')->with('error','Wrong Old Password');
+            return redirect('/settings')->with('error','Wrong Current Password');
     }
 
     /**
