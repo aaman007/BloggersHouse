@@ -105,6 +105,7 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // git commit test
     public function edit($id)
     {
         $post = Post::find($id);
