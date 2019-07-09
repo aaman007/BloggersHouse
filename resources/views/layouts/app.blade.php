@@ -37,7 +37,7 @@
     <hr>
     <!-- Footer Elements -->
         <div class="footer-copyright text-center py-3">
-        CodeVille : A Noob Pogrammer's CodeHub <br>
+        CodeVille : A Laravel Project <br>
         Developed By : Amanur Rahman <br>
         ©2019 Copyrights
     </div>          

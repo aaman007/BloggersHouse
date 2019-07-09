@@ -17,19 +17,29 @@ Route::get('/users/{name}/{id}',function($name,$id){
 });
 */
 
+/// NavBar Contents Routes
 Route::get('/','PagesController@index');
 Route::get('/about','PagesController@about');
 Route::get('/services','PagesController@services');
 
+/// Post Controller Routes
 route::resource('posts','PostsController');
 
 Auth::routes();
 
+/// Dashboard Controller Routes
 Route::get('/home','DashboardController@alreadySignedIn');
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
+/// User Controller Routes
 Route::get('/users','UsersController@index');
+Route::get('/users/{id}','UsersController@showProfile');
+Route::get('/users/userposts/{id}','UsersController@showPosts');
+Route::get('users/userposts/posts/{id}' , 'UsersController@show');
+Route::get('/userSearch','UsersController@search');
 
-Route::get('/users/{id}','UsersController@showPosts');
+/// Profile Controller Routes
+Route::resource('profile','ProfileController');
 
-Route::get('users/posts/{id}' , 'UsersController@show');
+/// Setting Controller Routes
+Route::resource('settings','SettingController');

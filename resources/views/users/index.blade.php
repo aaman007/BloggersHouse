@@ -4,6 +4,11 @@
 
     <h1>Users</h1>
 
+    <form class="form-inline my-2 my-lg-0" action="/userSearch" method="GET">
+        <input class="form-control mr-sm-2" name = "search" placeholder="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> <br>
+    
     @if(count($users))
         @foreach($users as $user)
         <div class="card">

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Posts</h1>
+    <h2>Posts by {{$name}}</h2>
 
     @if(count($posts))
         @foreach($posts as $post)

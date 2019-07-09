@@ -26,6 +26,7 @@
                     <a class="nav-link" href="/users">Users</a>
                 </li>
               </ul>
+              
               <!-- <ul class="navbar-nav ml-auto">
                   <li class="nav-item">
                     <a class="nav-link" href="/posts/create">Create Post</a>
@@ -64,6 +65,8 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
+                            
+
                         </div>
                     </li>
                 @endguest
