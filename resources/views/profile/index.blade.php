@@ -13,7 +13,7 @@
                     <div class="form-group">
                         {{Form::file('profile_picture')}}
                         {{Form::hidden('_method','PUT')}}
-                        {{Form::submit('Change',['class' => 'btn btn-primary' , 'style' => 'margin-left:10px;'])}}
+                        {{Form::submit('Change',['class' => 'btn btn-primary' , 'style' => 'margin-left:5px;'])}}
                     </div>
                 {!!Form::close()!!}
             </li>
