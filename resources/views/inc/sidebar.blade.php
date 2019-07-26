@@ -11,22 +11,16 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="/">Home <span class="sr-only"></span></a>
+                  <a class="nav-link" href="/all-announcements">Announcements</a>
                 </li>
                 <li class="nav-item">
-                        <a class="nav-link" href="/announcements">Announcements</a>
+                        <a class="nav-link" href="/all-users">Users</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/services">Services</a>
+                  <a class="nav-link" href="/admins">Admins</a>
                 </li>
                 <li class="nav-item">
-                        <a class="nav-link" href="/about">About</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/posts">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/users">Users</a>
+                    <a class="nav-link" href="/all-posts">Posts</a>
                 </li>
               </ul>
               
@@ -55,12 +49,7 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/dashboard">Dashboard</a>
-                            <a class="dropdown-item" href="/profile"> Profile </a>
-                            <a class="dropdown-item" href="/settings"> Settings </a>
-                            @if(Auth::user() && Auth::user()->admin)
-                                <a class="dropdown-item" href="/admin-panel">Admin Panel</a>
-                            @endif
+                            <a class="dropdown-item" href="/dashboard">User Panel</a>
 
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();

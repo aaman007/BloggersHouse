@@ -10,10 +10,17 @@
     </form> <br>
     
     @if(count($users))
+
         @foreach($users as $user)
         <div class="card">
             <div class="card-body">
                 <h5> <a href="users/{{$user->id}}"> {{$user->name}} </a>
+
+                @if($user->admin)
+                    <span class="badge badge-success">Admin</span>
+                @else
+                    <span class='badge badge-secondary'>Member</span>
+                @endif
 
                 <?php $diff = Carbon\Carbon::parse($user->created_at)->diffInDays(Carbon\Carbon::now()) ?>
 

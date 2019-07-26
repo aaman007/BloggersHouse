@@ -43,3 +43,7 @@ Route::resource('profile','ProfileController');
 
 /// Setting Controller Routes
 Route::resource('settings','SettingController');
+
+/// Admin Controller Routes
+
+Route::get('/admin-panel','AdminsController@index');

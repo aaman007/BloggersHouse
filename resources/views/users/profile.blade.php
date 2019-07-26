@@ -15,6 +15,13 @@
 
             <div style="font-family:Helvetica;font-weight:bold;font-size:17px;color:#0B3868;">
                 <li class="list-group-item" > Name : {{$user->name}} </li>
+                <li class="list-group-item">
+                        @if($user->admin)
+                            <h3><span class="badge badge-success">Admin</span></h3>
+                        @else
+                            <h3><span class='badge badge-secondary'>Member</span></h3>
+                        @endif
+                </li>
                 <li class="list-group-item">Email : {{$user->email}}</li>
                 @if(!empty($user->institution))
                     <li class="list-group-item">Institution : {{$user->institution}}</li>

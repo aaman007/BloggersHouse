@@ -5,7 +5,7 @@
             About Us
         </div>
         <div class="card-body">
-            <h4 class="card-title">CodeVille</h4>
+            <h4 class="card-title">BloggersHouse</h4>
             <p class="card-text">
                     @if(count($infos))
                         <ul class="list-group">
