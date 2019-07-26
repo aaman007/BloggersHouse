@@ -1,4 +1,4 @@
-This is same as CodeVille : A Laravel Project
+This is just slightly updated version of CodeVille : A Laravel Project
 # BloggersHouse : The Ultimate Blogging Website
 
 ## About BloggersHouse        
