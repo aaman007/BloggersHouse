@@ -1,15 +1,17 @@
-# CodeVille : A Laravel Project
+This is same as CodeVille : A Laravel Project
+# BloggersHouse : The Ultimate Blogging Website
 
-## About CodeVille        
+## About BloggersHouse        
 #### *Blogging Website        
 #### *Highly Secured        
         
 ## Features       
 #### *Sign In and Registration System      
 #### *CRUD Functionality        
-#### *Dashboard       
+#### *Dashboard   
+#### *Profile System
+#### *Update Profile Settings
+#### *Admin Panel ( In development )
          
-## Lackings       
-#### *No Profile System      
-#### *No Settings System      
-#### *No Admin Panel      
+## Lackings             
+#### *Did to learn a little about laravel not proffessionally   
