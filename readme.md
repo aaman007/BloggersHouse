@@ -6,12 +6,23 @@ This is just slightly updated version of CodeVille : A Laravel Project
 #### *Highly Secured        
         
 ## Features       
-#### *Sign In and Registration System      
+#### *Authentication System      
 #### *CRUD Functionality        
 #### *Dashboard   
 #### *Profile System
 #### *Update Profile Settings
-#### *Admin Panel ( In development )
+#### *Admin Panel
+
+## Tools and Others
+#### PHP
+#### Laravel 5.8
+#### Bootstrap 4
+#### Artisan
+#### Eloquent ORM
+#### Blade Template
+#### MySQL
+#### AdminLTE
+
          
 ## Lackings             
-#### *Did to learn a little about laravel not proffessionally   
+#### *Haven't Learned 0.001% of Laravel. This was done just to have some idea about laravel   
