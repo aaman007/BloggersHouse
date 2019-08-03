@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Post;
 use App\User;
+use App\Log;
 
 class ProfileController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('banned');
     }
     /**
      * Display a listing of the resource.
@@ -69,6 +71,11 @@ class ProfileController extends Controller
         
         $user->profile_picture = $filenameToStore;
         $user->save();
+
+        // Insertion of Log
+        $log = new Log;
+        $log->details = auth()->user()->name . " added his profile picture";
+        $log->save();
     }
 
     /**
@@ -122,6 +129,11 @@ class ProfileController extends Controller
         }
         $user->profile_picture = $filenameToStore;
         $user->save();
+
+        // Insertion of Log
+        $log = new Log;
+        $log->details = auth()->user()->name . " updated his profile picture";
+        $log->save();
 
         return redirect('/profile')->with('success','Profile Picture Updated');
     }

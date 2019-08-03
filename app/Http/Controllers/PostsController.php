@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 use App\Post;
+use App\Log;
 use DB;
 
 class PostsController extends Controller
@@ -13,6 +14,7 @@ class PostsController extends Controller
     public function __construct()
     {
         $this->middleware('auth' , ['except' => ['index','show']]);
+        $this->middleware('banned');
     }
     /**
      * Display a listing of the resource.
@@ -84,6 +86,11 @@ class PostsController extends Controller
         $post->cover_image = $filenameToStore;
         $post->save();
 
+        // Insertion of Log
+        $log = new Log;
+        $log->details = auth()->user()->name . " created post " . $post->title;
+        $log->save();
+
         return redirect('/posts')->with('success','Post Created');
     }
 
@@ -96,6 +103,7 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = POST::find($id);
+
         return view('posts/show')->with('post',$post);
     }
 
@@ -151,6 +159,12 @@ class PostsController extends Controller
         }
         // Update Post
         $post = Post::find($id);
+
+        // Insertion of Log
+        $log = new Log;
+        $log->details = auth()->user()->name . " edited post " . $post->title;
+        $log->save();
+
         $post->title = $request->input('title');
         $post->body = $request->input('body');
 
@@ -182,6 +196,12 @@ class PostsController extends Controller
             Storage::delete('public/cover_images/'.$post->cover_image);
         }
         $post->delete();
+
+        // Insertion of Log
+        $log = new Log;
+        $log->details = auth()->user()->name . " deleted post " . $post->title;
+        $log->save();
+
         return redirect('/posts')->with('success','Post Removed');
     }
 }

@@ -4,10 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Log;
 
 class AdminPostsController extends Controller
 {
-        // For Posts
+    public function __construct()
+    {
+        $this->middleware('admin');
+        $this->middleware('banned');
+    }
+    // For Posts
 
     /**
      * Display the specified resource.
@@ -18,6 +24,7 @@ class AdminPostsController extends Controller
     public function show($id)
     {
         $post = POST::find($id);
+
         return view('admin.showPost')->with('post',$post);
     }
 
@@ -68,6 +75,12 @@ class AdminPostsController extends Controller
         }
         // Update Post
         $post = Post::find($id);
+
+        // Insertion of Log
+        $log = new Log;
+        $log->details = auth()->user()->name . " edited post " . $post->title;
+        $log->save();
+
         $post->title = $request->input('title');
         $post->body = $request->input('body');
 
@@ -95,6 +108,12 @@ class AdminPostsController extends Controller
             Storage::delete('public/cover_images/'.$post->cover_image);
         }
         $post->delete();
+
+        // Insertion of Log
+        $log = new Log;
+        $log->details = auth()->user()->name . " deleted post " . $post->title;
+        $log->save();
+
         return redirect('/admin-panel/posts')->with('success','Post Removed');
     }
 }

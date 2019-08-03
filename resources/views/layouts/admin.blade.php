@@ -127,9 +127,16 @@
               </span>
             </a>
         </li>
-        <li class="header">Extras</li>
+        <li class="header">Others</li>
         <li> 
-        <a class="dropdown-item" href="{{ route('logout') }}"
+            <a href="/dashboard">
+              <i class="fa fa-circle-o text-green"></i> <span>User Panel</span>
+              <span class="pull-right-container">
+              </span>
+            </a>
+        </li>
+        <li> 
+        <a  href="{{ route('logout') }}"
             onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
                           <i class="fa fa-circle-o text-yellow"></i>

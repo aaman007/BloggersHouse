@@ -8,6 +8,10 @@ use App\Post;
 
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('banned');
+    }
     public function index()
     {
         $users = User::orderBy('name','asc')->paginate(10);

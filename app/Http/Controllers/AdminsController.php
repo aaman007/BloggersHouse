@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 use App\Announcement;
 use App\Post;
 use App\User;
+use App\Log;
 
 class AdminsController extends Controller
 {
     public function __construct()
     {
         $this->middleware('admin');
+        $this->middleware('banned');
     }
     public function index()
     {
@@ -30,7 +32,8 @@ class AdminsController extends Controller
     }
     public function logs()
     {
-        return view('admin.logs');
+        $logs = Log::orderBy('created_at','desc')->paginate(15);
+        return view('admin.logs')->with('logs',$logs);
     }
     public function showPosts()
     {
@@ -57,6 +60,12 @@ class AdminsController extends Controller
         $user = User::find($id);
         $user->admin = 1;
         $user->save();
+
+        // Insertion of Log
+        $log = new Log;
+        $log->details = auth()->user()->name . " made " . $user->name . " an admin";
+        $log->save();
+
         return redirect('admin-panel/users')->with('success','Admin Added Successfully');
     }
     public function removeAdmin($id)
@@ -64,6 +73,12 @@ class AdminsController extends Controller
         $user = User::find($id);
         $user->admin = 0;
         $user->save();
+
+        // Insertion of Log
+        $log = new Log;
+        $log->details = auth()->user()->name . " removed " . $user->name . " from admins";
+        $log->save();
+
         return redirect('admin-panel/admins')->with('success','Admin Removed Successfully');
 
     }
@@ -72,6 +87,12 @@ class AdminsController extends Controller
         $user = User::find($id);
         $user->banned = 1;
         $user->save();
+
+        // Insertion of Log
+        $log = new Log;
+        $log->details = auth()->user()->name . " banned " . $user->name . " from BloggersHouse";
+        $log->save();
+
         return redirect('admin-panel/users')->with('success','User Banned Successfully');
 
     }
@@ -80,6 +101,12 @@ class AdminsController extends Controller
         $user = User::find($id);
         $user->banned = 0;
         $user->save();
+
+        // Insertion of Log
+        $log = new Log;
+        $log->details = auth()->user()->name . " removed ban from " . $user->name;
+        $log->save();
+
         return redirect('admin-panel/users')->with('success','Ban Removed Successfully');
 
     }
@@ -96,6 +123,11 @@ class AdminsController extends Controller
     public function viewAdmin($id)
     {
         $admin = User::find($id);
+        
+        // Unauthorized Page
+        if($admin->admin == false)
+            return redirect('/admin-panel/admins')->with('error','Unauthorized Page');
+
         $posts = Post::where('user_id',$id)->count();
         $data = [
             'admin' => $admin ,
@@ -107,6 +139,7 @@ class AdminsController extends Controller
     public function show($id)
     {
         $announcement = Announcement::find($id);
+
         return view('admin.showAnnouncement')->with('announcement',$announcement);
     }
 
@@ -163,6 +196,11 @@ class AdminsController extends Controller
         $announcement->cover_image = $filenameToStore;
         $announcement->save();
 
+        // Insertion of Log
+        $log = new Log;
+        $log->details = auth()->user()->name . " created announcement " . $announcement->title;
+        $log->save();
+
         return redirect('admin-panel/announcements')->with('success','Post Created');
     }
     /**
@@ -212,6 +250,12 @@ class AdminsController extends Controller
         }
         // Update Post
         $announcement = Announcement::find($id);
+
+        // Insertion of Log
+        $log = new Log;
+        $log->details = auth()->user()->name . " edited announcement " . $announcement->title;
+        $log->save();
+
         $announcement->title = $request->input('title');
         $announcement->body = $request->input('body');
 
@@ -239,6 +283,12 @@ class AdminsController extends Controller
             Storage::delete('public/cover_images/'.$announcement->cover_image);
         }
         $announcement->delete();
+
+        // Insertion of Log
+        $log = new Log;
+        $log->details = auth()->user()->name . " deleted announcement " . $announcement->title;
+        $log->save();
+
         return redirect('/admin-panel/announcements')->with('success','Announcements Removed');
     }
 }

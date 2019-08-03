@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    //
+    public function __construct()
+    {
+        $this->middleware('banned' , ['except' => ['index']]);
+    }
     public function index(){
         $title = 'Welcome to CodeVille';
         //return view('pages.index',compact('title'));

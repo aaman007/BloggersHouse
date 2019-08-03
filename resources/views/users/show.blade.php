@@ -18,12 +18,12 @@
 
     <hr>
 
-    @if(!Auth::guest() && Auth::user()->id == $post->user_id)
-        <a href="/posts/{{$post->id}}/edit" class="btn btn-dark"> Edit </a>
+    @if(!Auth::guest() && (Auth::user()->id == $post->user_id || Auth::user()->admin))
+        <a href="/posts/{{$post->id}}/edit" class="btn btn-outline-dark"> Edit </a>
 
         {!!Form::open(['action' => ['PostsController@destroy',$post->id] , 'method' => 'POST' , 'class' => 'form-inline float-sm-right'])!!}
             {{Form::hidden('_method','DELETE')}}
-            {{Form::submit('Delete',['class' => 'btn btn-danger'])}}
+            {{Form::submit('Delete',['class' => 'btn btn-outline-danger'])}}
         {!!Form::close()!!}
     @endif
     <br><br>

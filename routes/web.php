@@ -38,6 +38,9 @@ Route::get('/users/userposts/{id}','UsersController@showPosts');
 Route::get('users/userposts/posts/{id}' , 'UsersController@show');
 Route::get('/userSearch','UsersController@search');
 
+// Announcement View
+Route::get('announcements/{id}','AnnouncementsController@show');
+
 /// Profile Controller Routes
 Route::resource('profile','ProfileController');
 

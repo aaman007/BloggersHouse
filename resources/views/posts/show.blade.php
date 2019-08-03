@@ -18,7 +18,7 @@
 
     <hr>
 
-    @if(!Auth::guest() && Auth::user()->id == $post->user_id)
+    @if(!Auth::guest() && (Auth::user()->id == $post->user_id || Auth::user()->admin))
         <a href="/posts/{{$post->id}}/edit" class="btn btn-outline-dark"> Edit </a>
 
         {!!Form::open(['action' => ['PostsController@destroy',$post->id] , 'method' => 'POST' , 'class' => 'form-inline float-sm-right'])!!}

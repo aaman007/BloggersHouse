@@ -13,4 +13,28 @@
         </ol>
     </section>
 
+    <section class="content">
+            @if(count($logs))
+                <table class="table table-striped text-center">
+                    <tr>
+                        <th>#ID</th>
+                        <th>Details</th>
+                        <th>Time</th>
+                    </tr>
+                @foreach($logs as $log)
+                    <tr>
+                    <td>{{$log->id}}</td>
+                    <td>{{$log->details}}</td>
+                    <td>{{$log->created_at}}</td>
+                    </tr>
+                @endforeach
+                </table>
+                <div class="justify-content-center">
+                        {{$logs->links()}} <!-- Pagination -->
+                </div>
+            @else
+                No Logs Available
+            @endif
+        </section>
+
 @endsection

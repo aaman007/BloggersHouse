@@ -23,7 +23,7 @@
                     <li class="list-group-item">
                         <img style="margin-bottom:10px;width:450px;height:400px;" class="img-thumbnail  bg-secondary" src="/storage/profile_pictures/{{$admin->profile_picture}}">
                         <br>
-                        <a class="btn btn-primary" href="/users/userposts/{{$admin->id}}" role="button">See Posts</a>
+                        <a class="btn btn-primary" href="/users/userposts/{{$admin->id}}" role="button">See Posts in User Panel</a>
                     </li>
         
                     <div style="font-family:Helvetica;font-weight:bold;font-size:17px;color:#0B3868;">

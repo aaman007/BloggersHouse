@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\User;
+use App\Log;
 
 class SettingController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('banned');
     }
     /**
      * Display a listing of the resource.
@@ -95,6 +97,12 @@ class SettingController extends Controller
             if($newPassword != '')
                 $user->password = Hash::make($newPassword);
             $user->save();
+
+            // Insertion of Log
+            $log = new Log;
+            $log->details = auth()->user()->name . " updated his profile details";
+            $log->save();
+
             return redirect('/settings')->with('success','Profile Updated');
         }
         else
