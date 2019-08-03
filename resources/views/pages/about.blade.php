@@ -15,7 +15,7 @@
                         </ul>
                 @endif
             </p>
-            <a href="https://aaman007.wordpress.com/" class="btn btn-primary">Aaman007</a>
+            <a href="https://aaman007.wordpress.com/" class="btn btn-primary">BloggersHouse</a>
         </div>
     </div>
     

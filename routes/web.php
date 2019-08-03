@@ -45,5 +45,31 @@ Route::resource('profile','ProfileController');
 Route::resource('settings','SettingController');
 
 /// Admin Controller Routes
-
 Route::get('/admin-panel','AdminsController@index');
+Route::resource('announcements','AdminsController');
+Route::get('/admin-panel/logs','AdminsController@logs');
+Route::get('/admin-panel/posts','AdminsController@showPosts');
+Route::get('/admin-panel/announcements','AdminsController@showAnnouncements');
+Route::get('/admin-panel/users','AdminsController@showUsers');
+Route::get('/admin-panel/admins','AdminsController@showAdmins');
+Route::get('/admin-panel/posts/delete/{id}','AdminPostsController@destroy');
+Route::get('/admin-panel/posts/edit/{id}','AdminPostsController@edit');
+Route::get('/admin-panel/posts/{id}','AdminPostsController@show');
+Route::get('/admin-panel/announcements/delete/{id}','AdminsController@destroy');
+Route::get('/admin-panel/announcements/edit/{id}','AdminsController@edit');
+Route::get('/admin-panel/announcements/{id}','AdminsController@show');
+Route::get('/admin-panel/create-announcement','AdminsController@create');
+Route::get('/admin-panel/users/{id}','AdminsController@viewUser');
+Route::get('/admin-panel/users/ban/{id}','AdminsController@banUser');
+Route::get('/admin-panel/users/remove-ban/{id}','AdminsController@removeBan');
+Route::get('/admin-panel/users/make-admin/{id}','AdminsController@makeAdmin');
+Route::get('/admin-panel/admins/{id}','AdminsController@viewAdmin');
+Route::get('/admin-panel/admins/remove/{id}','AdminsController@removeAdmin');
+
+// Admin Posts Controller
+Route::resource('adminPosts','AdminPostsController');
+
+
+// Announcements Controller Blade
+Route::get('/announcements','AnnouncementsController@index');
+Route::get('/announcements/{id}','AnnouncementsController@show');

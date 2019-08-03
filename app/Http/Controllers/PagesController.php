@@ -16,7 +16,7 @@ class PagesController extends Controller
     public function about(){
         $data = array(
             'title' => 'About Us' ,
-            'infos' => ['Developer : Amanur Rahman' , 'Department : CSE' , 'University : Metropolitan University',
+            'infos' => ['Developer : Amanur Rahman' , 'Developer : Fahedur Rahman Rahel'  , 'Department : CSE' , 'University : Metropolitan University',
             'Framework : Laravel']
         );
 
