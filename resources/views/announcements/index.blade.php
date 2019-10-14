@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4 col-sm-4">
-                            <img class="img-responsive" height="230" style="width:100%" src="/storage/cover_images/{{$announcement->cover_image}}">
+                            <img class="img-responsive" height="230" style="width:100%" src="https://i.imgur.com/9wpk0uZ.png">
                         </div>
                         <div class="col-md-8 col-sm-8">
                             <a href="announcements/{{$announcement->id}}"> <h3>{{$announcement->title}}</h3> </a>

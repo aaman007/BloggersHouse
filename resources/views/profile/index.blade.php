@@ -8,7 +8,7 @@
 
         <ul class="list-group">
             <li class="list-group-item">
-                <img style="margin-bottom:10px;width:450px;height:400px;" class="img-thumbnail  bg-secondary" src="/storage/profile_pictures/{{$user->profile_picture}}">
+                <img style="margin-bottom:10px;width:450px;height:400px;" class="img-thumbnail  bg-secondary" src="https://i.imgur.com/9wpk0uZ.png">
                 {!!Form::open(['action' => ['ProfileController@update',$user->id],'method' => 'POST', 'enctype' => 'multipart/form-data'])!!}
                     <div class="form-group">
                         {{Form::file('profile_picture')}}
