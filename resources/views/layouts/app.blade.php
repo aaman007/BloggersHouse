@@ -36,6 +36,7 @@
 
     <hr>
     <!-- Footer Elements -->
+    <footer>
         <div class="footer-copyright text-center py-3">
         BloggersHouse <br>
         Developed by : Amanur Rahman <br>
