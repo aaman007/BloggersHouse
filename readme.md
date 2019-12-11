@@ -1,6 +1,6 @@
+Demo : <a href="http://bloggers-house.herokuapp.com/>BloggersHouse</a>
 
 # BloggersHouse : The Ultimate Blogging Website
-Demo : <a href="http://bloggers-house.herokuapp.com/> BloggersHouse </a>
 
 ## About BloggersHouse        
 #### *Blogging Website        
