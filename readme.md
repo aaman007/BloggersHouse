@@ -1,5 +1,6 @@
-This is just slightly updated version of CodeVille : A Laravel Project
+
 # BloggersHouse : The Ultimate Blogging Website
+Demo : <a href="http://bloggers-house.herokuapp.com/> BloggersHouse </a>
 
 ## About BloggersHouse        
 #### *Blogging Website        
